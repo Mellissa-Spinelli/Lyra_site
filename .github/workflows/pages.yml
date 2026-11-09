@@ -27,8 +27,9 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Montar os arquivos públicos do site
         run: |
-          mkdir dist
+          mkdir -p dist/assets
           cp index.html styles.css app.js api-config.js dist/
+          cp assets/*.svg dist/assets/
       - name: Enviar o site para publicação
         uses: actions/upload-pages-artifact@v4
         with:

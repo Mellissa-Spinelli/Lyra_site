@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 350" role="img" aria-label="Paisagem impressionista de um nascer do sol sobre o porto">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#b8ced0"/><stop offset=".45" stop-color="#dfc8b5"/><stop offset="1" stop-color="#ed9d75"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#768d8c"/><stop offset=".44" stop-color="#58777a"/><stop offset="1" stop-color="#354f58"/>
+    </linearGradient>
+    <radialGradient id="sun">
+      <stop stop-color="#ffd59b"/><stop offset=".72" stop-color="#f08b62"/><stop offset="1" stop-color="#e87856"/>
+    </radialGradient>
+    <filter id="soften"><feGaussianBlur stdDeviation="12"/></filter>
+    <clipPath id="frame"><rect width="660" height="350" rx="24"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="660" height="205" fill="url(#sky)"/>
+    <rect y="205" width="660" height="145" fill="url(#water)"/>
+    <path d="M0 178c91-12 147 2 222-9 91-13 150 8 238-1 73-8 128-5 200 3v37H0z" fill="#718789" opacity=".48"/>
+    <circle cx="477" cy="128" r="50" fill="#f6a274" opacity=".24" filter="url(#soften)"/>
+    <circle cx="477" cy="128" r="29" fill="url(#sun)"/>
+    <g fill="none" stroke-linecap="round" opacity=".5">
+      <path d="M-24 53c96 19 137 2 210 12" stroke="#eef0dc" stroke-width="8"/>
+      <path d="M81 90c58-15 93-5 132 7m82-52c63 14 103 9 144 4" stroke="#f3e2cd" stroke-width="5"/>
+      <path d="M-15 139c80-12 126 2 188-7m156 18c43-8 69-2 101 4" stroke="#f2bd9b" stroke-width="7"/>
+      <path d="M22 197c61-9 104-2 157-10m191 10c64-8 104-2 160 4" stroke="#f2b08a" stroke-width="4"/>
+    </g>
+    <g fill="none" stroke-linecap="round" opacity=".62">
+      <path d="M408 209h128m-92 11h80m-51 12h72m-151 10h64m90 7h105m-251 12h137m-77 12h103m-281 12h112m-56 13h174m-112 12h104m-205 10h130" stroke="#e98b68" stroke-width="5"/>
+      <path d="M8 222h101m83 12h105M18 247h132m285 8h88M93 276h109m255 13h136M20 311h132m213 14h122" stroke="#b9c5b4" stroke-width="3"/>
+    </g>
+    <g fill="#30474e" opacity=".82">
+      <path d="M115 203h195l-20 9H132z"/><path d="M183 198l25-3 16 8h-48z"/>
+      <path d="M232 197v-82m4 1 38 70h-38z"/><path d="M330 203h91l-12 7h-68z"/>
+      <path d="M359 200v-54m4 0 26 47h-26z"/><path d="M79 204v-36m3 0 16 30H82z"/>
+    </g>
+    <g fill="none" stroke="#435c61" stroke-linecap="round" opacity=".64">
+      <path d="M151 198v-61m0 0-17 58m17-44 19 47m-11-30 22 29M451 203v-75m0 8-14 66m15-52 19 55" stroke-width="2"/>
+      <path d="M4 198h73m426 7h153" stroke-width="4"/>
+    </g>
+    <g fill="none" stroke="#f3d0b7" stroke-linecap="round" opacity=".46">
+      <path d="M34 185c29-11 52-9 78-4m231-8c42-9 71-7 105 1m-422 7h91" stroke-width="5"/>
+      <path d="M32 234h78m300 28h91m-250 50h73" stroke-width="2"/>
+    </g>
+    <rect width="660" height="350" fill="#f1b28b" opacity=".06"/>
+  </g>
+</svg>

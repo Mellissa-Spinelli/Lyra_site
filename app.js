@@ -3,17 +3,75 @@ const pages = {
   planejamento: "Planejamento",
   agenda: "Agenda",
   conversa: "Conversar com Lyra",
+  temas: "Temas",
 };
 
 const navButtons = [...document.querySelectorAll(".nav-link")];
 const pageSections = [...document.querySelectorAll(".page")];
 const pageLabel = document.getElementById("page-label");
 const previewStorageKey = "lyra-preview-agenda-v2";
+const themeStorageKey = "lyra-selected-theme-v1";
 const apiBaseUrl = (window.LYRA_CONFIG?.apiBaseUrl || "").replace(/\/+$/, "");
 const remoteMode = Boolean(apiBaseUrl);
 const authStorageKey = "lyra-api-session-v1";
 let authToken = remoteMode ? sessionStorage.getItem(authStorageKey) || "" : "";
 let apiAvailable = false;
+
+const themes = {
+  "starry-night": {
+    name: "A Noite Estrelada",
+    description: "Azuis profundos, redemoinhos celestes e pontos de luz dourada.",
+    caption: "NOITE ESTRELADA · VAN GOGH",
+    browserColor: "#101d3c",
+  },
+  "monet-sunrise": {
+    name: "Impressão, nascer do sol",
+    description: "Névoa azul-acinzentada, água verde-petróleo e um sol coral.",
+    caption: "IMPRESSÃO, NASCER DO SOL · MONET",
+    browserColor: "#536f74",
+  },
+  "monet-nympheas": {
+    name: "O lago das ninfeias",
+    description: "Verdes de jardim, reflexos azulados e flores em rosa suave.",
+    caption: "NYMPHÉAS · MONET",
+    browserColor: "#294a49",
+  },
+};
+
+function applyTheme(themeId, save = true) {
+  const selectedTheme = themes[themeId] ? themeId : "starry-night";
+  const theme = themes[selectedTheme];
+  document.body.dataset.theme = selectedTheme;
+  document.getElementById("active-theme-name").textContent = theme.name;
+  document.getElementById("active-theme-description").textContent = theme.description;
+  document.getElementById("hero-art-caption").textContent = theme.caption;
+  document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme.browserColor);
+  document.querySelectorAll("[data-theme-card]").forEach((card) => {
+    const active = card.dataset.themeCard === selectedTheme;
+    card.classList.toggle("is-selected", active);
+    const button = card.querySelector("[data-theme-select]");
+    button.setAttribute("aria-pressed", String(active));
+    button.replaceChildren(document.createTextNode(active ? "Tema aplicado ✓" : "Aplicar tema"));
+    if (!active) {
+      const arrow = document.createElement("span");
+      arrow.textContent = "↗";
+      button.append(arrow);
+    }
+  });
+  if (save) {
+    try { localStorage.setItem(themeStorageKey, selectedTheme); } catch { /* Preferências podem estar desativadas no navegador. */ }
+  }
+}
+
+let savedTheme = "starry-night";
+try {
+  const storedTheme = localStorage.getItem(themeStorageKey);
+  if (themes[storedTheme]) savedTheme = storedTheme;
+} catch { /* Usa o tema inicial se o navegador bloquear armazenamento local. */ }
+applyTheme(savedTheme, false);
+document.querySelectorAll("[data-theme-select]").forEach((button) => {
+  button.addEventListener("click", () => applyTheme(button.dataset.themeSelect));
+});
 
 function setApiMode(connected) {
   apiAvailable = connected;

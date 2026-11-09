@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 350" role="img" aria-label="Lago impressionista de nenúfares em tons de verde, azul e rosa">
+  <defs>
+    <linearGradient id="pond" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#789a90"/><stop offset=".42" stop-color="#63858a"/><stop offset="1" stop-color="#385d68"/>
+    </linearGradient>
+    <linearGradient id="reflection" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#b2c7b0" stop-opacity=".66"/><stop offset="1" stop-color="#597d83" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="bloom"><stop stop-color="#fff4d9"/><stop offset=".58" stop-color="#f5cfca"/><stop offset="1" stop-color="#db9fae"/></radialGradient>
+    <filter id="soften"><feGaussianBlur stdDeviation="14"/></filter>
+    <clipPath id="frame"><rect width="660" height="350" rx="24"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="660" height="350" fill="url(#pond)"/>
+    <path d="M0 0h660v126c-75 14-130-17-204-7-70 9-125 27-211 7C160 105 86 137 0 112z" fill="#496b68" opacity=".54"/>
+    <ellipse cx="339" cy="119" rx="230" ry="66" fill="#d7d8bd" opacity=".22" filter="url(#soften)"/>
+    <g fill="none" stroke-linecap="round" opacity=".55">
+      <path d="M-18 44c65 5 95 17 139 11m30 8c51-13 88-9 120 3m69-27c65 9 96 24 148 13m46 9c44-9 75-8 126 4" stroke="#b8c8aa" stroke-width="7"/>
+      <path d="M15 94c55-10 91-2 137 6m88-13c43-12 84-5 119 8m59-18c50 6 82 21 131 10m39 15h85" stroke="#9fb5a0" stroke-width="5"/>
+      <path d="M-8 149c71-14 123-1 176 5m63-16c52 11 88 7 134-5m45 17c55-8 102-2 147 8m43-15h67" stroke="#d3c5bd" stroke-width="4"/>
+      <path d="M4 195c57-11 89-8 135 4m53 12c57-13 94-6 140 1m70-17c47-9 93-1 131 9m22-7h113" stroke="#9bb7b3" stroke-width="6"/>
+      <path d="M-10 254c67-5 102 11 154 5m67 17c56-13 96-4 140 5m72-19c47 4 84 16 127 8m43 9h80" stroke="#c4b7bd" stroke-width="4"/>
+      <path d="M31 314c43-8 86-5 127 4m105-9c48-7 87-2 127 7m80-12c50 7 86 14 143 8" stroke="#78999a" stroke-width="7"/>
+    </g>
+    <g fill="none" stroke="#455f5c" stroke-linecap="round" opacity=".55">
+      <path d="M77 0c12 42 18 79 9 122m28-122c-5 39-2 73 17 105M536 0c-17 38-22 75-17 116m46-116c-8 47-4 80 16 115" stroke-width="7"/>
+      <path d="M142 0c7 44 24 67 52 86m257-86c-17 34-37 60-65 82" stroke-width="4"/>
+    </g>
+    <g fill="#91a777" stroke="#d4d0aa" stroke-opacity=".5" stroke-width="2">
+      <path d="M112 219c15-25 46-29 71-12-18 21-44 31-71 12z"/><path d="M158 294c18-26 52-30 79-11-20 24-48 33-79 11z"/>
+      <path d="M346 223c19-29 54-32 84-12-22 26-52 36-84 12z"/><path d="M451 302c18-25 52-28 77-10-19 22-47 31-77 10z"/>
+      <path d="M516 200c17-25 46-27 69-9-18 21-42 29-69 9z"/><path d="M257 174c15-22 42-24 63-7-16 18-39 26-63 7z"/>
+    </g>
+    <g fill="none" stroke="#d8c6ad" stroke-width="2" opacity=".58">
+      <path d="M147 210l35-4m-3 83 40-6m158-67 45-5m72 84 45-5m41-95 35-4m-276-22 40-4"/>
+    </g>
+    <g>
+      <ellipse cx="294" cy="243" rx="22" ry="8" fill="#779565"/><ellipse cx="294" cy="240" rx="10" ry="16" fill="url(#bloom)"/>
+      <path d="M278 242c3-15 10-20 16-20 7 1 12 8 16 19-10-5-21-5-32 1z" fill="#f5d6cf"/><circle cx="294" cy="237" r="4" fill="#e8b863"/>
+      <ellipse cx="511" cy="247" rx="19" ry="7" fill="#789867"/><ellipse cx="511" cy="244" rx="9" ry="14" fill="url(#bloom)"/>
+      <path d="M497 245c2-12 8-18 14-18s11 7 14 17c-9-5-19-4-28 1z" fill="#fff0d4"/><circle cx="511" cy="242" r="3.5" fill="#e5b75f"/>
+      <ellipse cx="196" cy="156" rx="15" ry="6" fill="#809869"/><ellipse cx="196" cy="154" rx="7" ry="11" fill="#e8bac2"/><circle cx="196" cy="152" r="3" fill="#efd293"/>
+    </g>
+    <g fill="none" stroke-linecap="round" opacity=".56">
+      <path d="M247 260h59m-24 12h34m193-25h50m-364 55h61m255 15h62" stroke="#ead1ca" stroke-width="3"/>
+      <path d="M82 273h44m158 44h39m-121-123h26m246-32h61" stroke="#d8d9c4" stroke-width="2"/>
+    </g>
+    <rect width="660" height="350" fill="url(#reflection)" opacity=".35"/>
+  </g>
+</svg>

@@ -25,6 +25,7 @@ O endereço esperado da API está em `api-config.js`. Se o Render atribuir outro
 ### Limites atuais
 
 - A agenda online fica no armazenamento local do navegador. No servidor local, ela continua usando `projetoLYRA/agenda_lyra.json`.
+- A aba **Temas** oferece a identidade da Noite Estrelada e duas composições inspiradas em Claude Monet; a escolha muda a paleta e a paisagem principal e fica salva no navegador.
 - A memória da IA hospedada fica em armazenamento temporário do serviço e pode ser apagada quando ele reiniciar ou for atualizado.
 - A configuração de teste não inclui banco de dados persistente.
 - O código do núcleo e os prompts da LYRA ficam no repositório público; arquivos `.env`, chaves de API, memórias existentes e a agenda local não são publicados.
@@ -32,4 +33,4 @@ O endereço esperado da API está em `api-config.js`. Se o Render atribuir outro
 
 ## Publicação do site
 
-O workflow em `.github/workflows/pages.yml` publica somente os arquivos da interface (`index.html`, `styles.css`, `app.js` e `api-config.js`). Cada envio para `main` atualiza o GitHub Pages. O endereço é https://mellissa-spinelli.github.io/Lyra_site/.
+O workflow em `.github/workflows/pages.yml` publica a interface (`index.html`, `styles.css`, `app.js`, `api-config.js` e as ilustrações SVG em `assets/`). Cada envio para `main` atualiza o GitHub Pages. O endereço é https://mellissa-spinelli.github.io/Lyra_site/.

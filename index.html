@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-theme="starry-night">
     <div class="app-shell">
       <aside class="sidebar">
         <a class="brand" href="#inicio" aria-label="LYRA, início">
@@ -24,7 +24,8 @@
           <button class="nav-link active" data-page="inicio"><span class="nav-icon">✦</span>Visão geral</button>
           <button class="nav-link" data-page="planejamento"><span class="nav-icon">✎</span>Planejamento</button>
           <button class="nav-link" data-page="agenda"><span class="nav-icon">▦</span>Agenda</button>
-          <button class="nav-link" data-page="conversa"><span class="nav-icon">☾</span>Conversar com Lyra</button>
+          <button class="nav-link" data-page="conversa"><span class="nav-icon">☾</span>Conversa</button>
+          <button class="nav-link" data-page="temas"><span class="nav-icon">◉</span>Temas</button>
         </nav>
 
         <div class="sidebar-spacer"></div>
@@ -60,7 +61,7 @@
               <button class="button button-light" data-go="planejamento">Criar meu primeiro planejamento <span>↗</span></button>
             </div>
             <div class="hero-art" aria-hidden="true">
-              <svg viewBox="0 0 660 350" role="img" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 660 350" data-scene="starry-night" role="img" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#182958"/><stop offset=".52" stop-color="#384e94"/><stop offset="1" stop-color="#1c2b57"/></linearGradient>
                   <radialGradient id="moon"><stop stop-color="#fff6c7"/><stop offset=".55" stop-color="#f6d884"/><stop offset="1" stop-color="#e9ae57"/></radialGradient>
@@ -87,8 +88,10 @@
                   <path d="M569 218l-8 36m17-20 13-28m8 25 19-20" fill="none" stroke="#c2a86c" stroke-opacity=".48" stroke-width="2"/>
                 </g>
               </svg>
+              <img class="hero-monet-scene" data-scene="monet-sunrise" src="assets/monet-sunrise.svg" alt="" />
+              <img class="hero-monet-scene" data-scene="monet-nympheas" src="assets/monet-nympheas.svg" alt="" />
               <div class="avatar-stage"><span class="avatar-orbit orbit-one"></span><span class="avatar-orbit orbit-two"></span><span class="avatar-core">✧</span><small>avatar em criação</small></div>
-              <div class="art-caption"><span>✦</span> IDEIAS QUE BRILHAM</div>
+              <div class="art-caption"><span>✦</span> <span id="hero-art-caption">NOITE ESTRELADA · VAN GOGH</span></div>
             </div>
           </section>
 
@@ -153,6 +156,64 @@
             <form class="chat-compose" id="chat-form"><input id="chat-input" type="text" autocomplete="off" placeholder="Escreva uma ideia ou uma pergunta..." aria-label="Mensagem para a LYRA" /><button type="submit" aria-label="Enviar mensagem">↑</button></form>
             <p class="chat-disclaimer" id="chat-disclaimer">Nesta prévia, as respostas são demonstrativas. As mensagens não saem deste navegador.</p>
           </section>
+        </section>
+
+        <section class="page" id="page-temas">
+          <div class="subpage-heading compact-heading">
+            <p class="eyebrow"><span class="eyebrow-star">✦</span> IDENTIDADE VISUAL</p>
+            <h1>Escolha o céu<br /><span>da LYRA.</span></h1>
+            <p class="intro-copy">Cada tema muda as cores e a paisagem do seu espaço. As novas composições homenageiam a luz e os jardins de Claude Monet.</p>
+          </div>
+          <section class="theme-current panel" aria-live="polite">
+            <div class="theme-current-orbit" aria-hidden="true"><span>✦</span></div>
+            <div><p class="eyebrow">TEMA EM USO</p><h2 id="active-theme-name">A Noite Estrelada</h2><p id="active-theme-description">Azuis profundos, ouro e movimento no céu.</p></div>
+            <span class="theme-current-mark"><span></span> APLICADO NESTE NAVEGADOR</span>
+          </section>
+          <div class="theme-grid" aria-label="Temas disponíveis">
+            <article class="theme-choice" data-theme-card="starry-night">
+              <div class="theme-art theme-art-starry" aria-hidden="true">
+                <svg viewBox="0 0 500 190" xmlns="http://www.w3.org/2000/svg">
+                  <defs><linearGradient id="starry-card-sky" x2="0" y2="1"><stop stop-color="#273c74"/><stop offset="1" stop-color="#101d3c"/></linearGradient></defs>
+                  <rect width="500" height="190" fill="url(#starry-card-sky)"/>
+                  <path d="M-20 65C63 4 112 26 158 65c50 43 86 39 132 6 56-40 118-48 228-6" fill="none" stroke="#8297d5" stroke-width="17" stroke-linecap="round" opacity=".55"/>
+                  <path d="M-10 91c76-51 125-36 173 2 44 35 86 36 134 4 57-38 132-39 220-4" fill="none" stroke="#b2c0e8" stroke-width="7" stroke-linecap="round" opacity=".45"/>
+                  <circle cx="383" cy="57" r="25" fill="#f5d582"/><circle cx="383" cy="57" r="42" fill="#f5d582" opacity=".16"/>
+                  <path d="M0 155c67-44 116-43 176-12 48 25 88 23 137 4 54-21 116-17 187 22v40H0z" fill="#111a31"/>
+                  <g fill="#f7e3a0"><circle cx="84" cy="43" r="2"/><circle cx="229" cy="42" r="2.5"/><circle cx="457" cy="103" r="2"/></g>
+                </svg>
+              </div>
+              <div class="theme-choice-body">
+                <div class="theme-choice-meta"><span>VINCENT VAN GOGH</span><span>1889</span></div>
+                <h2>A Noite Estrelada</h2>
+                <p>Azul cobalto, redemoinhos celestes e pontos de luz dourada.</p>
+                <div class="theme-swatches" aria-label="Paleta: azul profundo, azul luminoso, ouro e meia-noite"><i></i><i></i><i></i><i></i></div>
+                <button class="theme-select" type="button" data-theme-select="starry-night" aria-pressed="false">Aplicar tema <span>↗</span></button>
+              </div>
+            </article>
+
+            <article class="theme-choice" data-theme-card="monet-sunrise">
+              <div class="theme-art"><img src="assets/monet-sunrise.svg" alt="Impressão de um porto ao nascer do sol, em pinceladas azuis, cinza e coral" /></div>
+              <div class="theme-choice-body">
+                <div class="theme-choice-meta"><span>CLAUDE MONET</span><span>1872</span></div>
+                <h2>Impressão, nascer do sol</h2>
+                <p>Névoa azul-acinzentada, água verde-petróleo e um sol coral.</p>
+                <div class="theme-swatches sunrise-swatches" aria-label="Paleta: névoa, azul de porto, coral e areia"><i></i><i></i><i></i><i></i></div>
+                <button class="theme-select" type="button" data-theme-select="monet-sunrise" aria-pressed="false">Aplicar tema <span>↗</span></button>
+              </div>
+            </article>
+
+            <article class="theme-choice" data-theme-card="monet-nympheas">
+              <div class="theme-art"><img src="assets/monet-nympheas.svg" alt="Lago com nenúfares, reflexos verdes e azuis e flores rosadas" /></div>
+              <div class="theme-choice-body">
+                <div class="theme-choice-meta"><span>CLAUDE MONET</span><span>SÉRIE NYMPHÉAS</span></div>
+                <h2>O lago das ninfeias</h2>
+                <p>Verdes de jardim, reflexos azulados e flores em rosa suave.</p>
+                <div class="theme-swatches lily-swatches" aria-label="Paleta: verde de lago, azul, lavanda e rosa flor"><i></i><i></i><i></i><i></i></div>
+                <button class="theme-select" type="button" data-theme-select="monet-nympheas" aria-pressed="false">Aplicar tema <span>↗</span></button>
+              </div>
+            </article>
+          </div>
+          <p class="theme-footnote"><span>✧</span> Sua escolha fica salva neste navegador e pode ser trocada quando quiser.</p>
         </section>
       </main>
     </div>
