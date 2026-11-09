@@ -1,0 +1,52 @@
+{
+    "metodologias": [
+        {
+            "nome": "Aula expositiva dialogada",
+            "descricao": "Apresentação do conteúdo pelo professor, com explicações e participação dos estudantes por meio de perguntas e discussões."
+        },
+        {
+            "nome": "Debate",
+            "descricao": "Discussão orientada sobre o tema, estimulando argumentação, participação e troca de ideias entre os estudantes."
+        },
+        {
+            "nome": "Análise de imagens",
+            "descricao": "Utilização de imagens como recurso para observação, interpretação e discussão do conteúdo trabalhado."
+        },
+        {
+            "nome": "Análise de mapas",
+            "descricao": "Leitura e interpretação de mapas para relacionar informações espaciais ao conteúdo estudado."
+        },
+        {
+            "nome": "Estudo de caso",
+            "descricao": "Análise de uma situação concreta relacionada ao conteúdo para estimular interpretação e aplicação dos conhecimentos."
+        },
+        {
+            "nome": "Atividade impressa",
+            "descricao": "Realização de atividade escrita para aplicação, interpretação e sistematização dos conhecimentos trabalhados."
+        },
+        {
+            "nome": "Trabalho em grupo",
+            "descricao": "Desenvolvimento de uma atividade colaborativa, promovendo participação, organização e troca de conhecimentos entre os estudantes."
+        },
+        {
+            "nome": "Pesquisa",
+            "descricao": "Investigação orientada sobre aspectos relacionados ao conteúdo, utilizando diferentes fontes de informação."
+        },
+        {
+            "nome": "Vídeo",
+            "descricao": "Utilização de recurso audiovisual para introduzir, aprofundar ou contextualizar o conteúdo."
+        },
+        {
+            "nome": "Mapa mental",
+            "descricao": "Organização visual das principais ideias e conceitos do conteúdo para facilitar a compreensão e sistematização."
+        },
+        {
+            "nome": "Análise de texto",
+            "descricao": "Leitura e interpretação de textos relacionados ao conteúdo, seguida de discussão e identificação das principais ideias."
+        },
+        {
+            "nome": "Resolução de questões",
+            "descricao": "Realização de questões objetivas ou discursivas para aplicação e verificação da compreensão do conteúdo."
+        }
+    ]
+}

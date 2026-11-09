@@ -9,15 +9,22 @@ const navButtons = [...document.querySelectorAll(".nav-link")];
 const pageSections = [...document.querySelectorAll(".page")];
 const pageLabel = document.getElementById("page-label");
 const previewStorageKey = "lyra-preview-agenda-v2";
+const apiBaseUrl = (window.LYRA_CONFIG?.apiBaseUrl || "").replace(/\/+$/, "");
+const remoteMode = Boolean(apiBaseUrl);
+const authStorageKey = "lyra-api-session-v1";
+let authToken = remoteMode ? sessionStorage.getItem(authStorageKey) || "" : "";
 let apiAvailable = false;
 
 function setApiMode(connected) {
   apiAvailable = connected;
-  document.getElementById("mode-label").textContent = connected ? "Núcleo LYRA conectado" : "Modo de prévia";
+  document.getElementById("mode-label").textContent = connected ? (remoteMode ? "Backend LYRA conectado" : "Núcleo LYRA conectado") : "Modo de prévia";
   document.getElementById("chat-mode").textContent = connected ? "IA CONECTADA" : "MODO DE PRÉVIA";
   document.getElementById("chat-disclaimer").textContent = connected
-    ? "As mensagens passam pelo núcleo LYRA no seu computador e seguem para a API de IA configurada. A chave fica no backend."
+    ? "As mensagens seguem para o backend protegido da LYRA. A chave da API fica no servidor."
     : "Nesta prévia, as respostas são demonstrativas. As mensagens não saem deste navegador.";
+  const connectionButton = document.getElementById("backend-login");
+  connectionButton.hidden = !remoteMode;
+  connectionButton.textContent = connected ? "Desconectar" : "Conectar";
 }
 
 function openPage(name) {
@@ -37,14 +44,63 @@ document.getElementById("today-label").textContent = new Intl.DateTimeFormat("pt
 }).format(now);
 
 async function apiRequest(path, options = {}) {
-  const response = await fetch(path, {
+  const headers = { "Content-Type": "application/json", ...(options.headers || {}) };
+  if (remoteMode && authToken) headers.Authorization = `Bearer ${authToken}`;
+  const response = await fetch(`${apiBaseUrl}${path}`, {
     ...options,
-    headers: { "Content-Type": "application/json", ...(options.headers || {}) },
+    headers,
   });
   const data = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(data.error || "Não consegui concluir essa ação.");
   return data;
 }
+
+const connectionDialog = document.getElementById("connection-dialog");
+const connectionForm = document.getElementById("connection-form");
+const connectionPassword = document.getElementById("connection-password");
+const connectionError = document.getElementById("connection-error");
+
+document.getElementById("backend-login").addEventListener("click", async () => {
+  if (apiAvailable && remoteMode) {
+    authToken = "";
+    sessionStorage.removeItem(authStorageKey);
+    setApiMode(false);
+    await Promise.all([loadMethods(), loadAgenda()]);
+    return;
+  }
+  connectionError.hidden = true;
+  connectionDialog.showModal();
+  connectionPassword.focus();
+});
+
+document.getElementById("connection-close").addEventListener("click", () => connectionDialog.close());
+connectionDialog.addEventListener("click", (event) => {
+  if (event.target === connectionDialog) connectionDialog.close();
+});
+
+connectionForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const submit = document.getElementById("connection-submit");
+  const password = connectionPassword.value;
+  submit.disabled = true;
+  connectionError.hidden = true;
+  try {
+    const data = await apiRequest("/api/auth/login", {
+      method: "POST",
+      body: JSON.stringify({ password }),
+    });
+    authToken = data.token;
+    sessionStorage.setItem(authStorageKey, authToken);
+    connectionPassword.value = "";
+    connectionDialog.close();
+    await initializeSite();
+  } catch (error) {
+    connectionError.textContent = error.message;
+    connectionError.hidden = false;
+  } finally {
+    submit.disabled = false;
+  }
+});
 
 const plannerForm = document.getElementById("planner-form");
 const draftPlaceholder = document.getElementById("draft-placeholder");
@@ -75,7 +131,7 @@ function renderMethods(methods) {
 }
 
 async function loadMethods() {
-  if (!apiAvailable) {
+  if (!apiAvailable && !remoteMode) {
     renderMethods(previewMethods);
     return;
   }
@@ -221,7 +277,7 @@ function renderAgenda() {
     remove.addEventListener("click", async () => {
       remove.disabled = true;
       try {
-        if (apiAvailable) {
+        if (apiAvailable && !remoteMode) {
           await apiRequest(`/api/agenda/${encodeURIComponent(item.id)}`, { method: "DELETE" });
           await loadAgenda();
         } else {
@@ -243,7 +299,7 @@ function renderAgenda() {
 }
 
 async function loadAgenda() {
-  if (!apiAvailable) {
+  if (!apiAvailable || remoteMode) {
     agendaItems = readPreviewAgenda();
     agendaItems.sort((a, b) => a.dia - b.dia || (a.ordem || 0) - (b.ordem || 0));
     renderAgenda();
@@ -275,7 +331,7 @@ agendaForm.addEventListener("submit", async (event) => {
     materiais: document.getElementById("agenda-materials").value.trim(),
   };
   try {
-    if (apiAvailable) {
+    if (apiAvailable && !remoteMode) {
       await apiRequest("/api/agenda", {
         method: "POST",
         body: JSON.stringify({ day: item.dia, time: item.horario, discipline: item.disciplina, summary: item.resumo, materials: item.materiais }),
@@ -352,6 +408,11 @@ async function sendChatMessage(text) {
   chatStream.append(pending);
   chatStream.scrollTop = chatStream.scrollHeight;
   if (!apiAvailable) {
+    if (remoteMode) {
+      pending.remove();
+      appendMessage("LYRA", "Para conversar com o núcleo real, conecte-se pelo botão no topo da página.");
+      return;
+    }
     window.setTimeout(() => {
       pending.remove();
       const responseIndex = message.toLocaleLowerCase("pt-BR").includes("simples") ? 1
@@ -370,7 +431,7 @@ async function sendChatMessage(text) {
   } catch (error) {
     setApiMode(false);
     pending.remove();
-    appendMessage("LYRA", previewReplies[0]);
+    appendMessage("LYRA", remoteMode ? `Não consegui falar com o backend agora. ${error.message}` : previewReplies[0]);
   }
 }
 
@@ -381,6 +442,23 @@ chatForm.addEventListener("submit", (event) => {
 suggestions.forEach((button) => button.addEventListener("click", () => sendChatMessage(button.dataset.prompt)));
 
 async function initializeSite() {
+  if (remoteMode) {
+    let connected = false;
+    if (authToken) {
+      try {
+        await apiRequest("/api/auth/me");
+        connected = true;
+      } catch (error) {
+        if (error.message.includes("Conecte-se")) {
+          authToken = "";
+          sessionStorage.removeItem(authStorageKey);
+        }
+      }
+    }
+    setApiMode(connected);
+    await Promise.all([loadMethods(), loadAgenda()]);
+    return;
+  }
   try {
     await apiRequest("/api/status");
     setApiMode(true);

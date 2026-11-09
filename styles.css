@@ -53,7 +53,22 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px
 .topbar-right { display: flex; align-items: center; gap: 20px; }
 .topbar-note { color: #737e97; font-size: 11px; }
 .tiny-star { color: #d6aa4d; padding-right: 5px; }
+.connection-button { border: 1px solid #dfe4f1; border-radius: 20px; padding: 7px 12px; background: #fff; color: #40527f; font-size: 10px; font-weight: 700; cursor: pointer; }
+.connection-button:hover { border-color: #bcc8e6; background: #f6f7fc; }
+.connection-button[hidden] { display: none; }
 .avatar-placeholder { width: 33px; height: 33px; border-radius: 50%; border: 1px dashed #aab3cd; background: #f1f1f8; color: #6171a4; display: grid; place-items: center; cursor: default; font-size: 17px; }
+.connection-dialog { width: min(420px, calc(100vw - 32px)); border: 1px solid #e5e8f1; border-radius: 18px; padding: 0; color: var(--ink); background: #fff; box-shadow: 0 24px 80px rgba(12, 24, 52, .24); }
+.connection-dialog::backdrop { background: rgba(11, 21, 45, .52); backdrop-filter: blur(3px); }
+.connection-form { position: relative; display: grid; gap: 12px; padding: 30px; }
+.connection-form .eyebrow { margin-bottom: 0; }
+.connection-form h2 { margin: 0; font-size: 24px; letter-spacing: -.04em; }
+.connection-form > p:not(.eyebrow):not(.connection-error) { margin: 0 0 3px; color: #78839b; font-size: 12px; line-height: 1.65; }
+.connection-form label { color: #52607d; font-size: 11px; font-weight: 700; }
+.connection-form input { min-width: 0; border: 1px solid #e1e5ef; border-radius: 8px; padding: 11px 12px; color: var(--ink); font-size: 13px; }
+.connection-form .button { width: 100%; margin-top: 4px; }
+.connection-form > small { color: #99a1b2; font-size: 9px; line-height: 1.5; text-align: center; }
+.dialog-close { position: absolute; top: 13px; right: 15px; border: 0; background: transparent; color: #929bad; font-size: 24px; line-height: 1; cursor: pointer; }
+.connection-error { margin: 0; color: #a33b4d; font-size: 11px; }
 .page { display: none; padding: 39px 0 0; animation: page-in .32s ease both; }
 .page.active { display: block; }
 @keyframes page-in { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }

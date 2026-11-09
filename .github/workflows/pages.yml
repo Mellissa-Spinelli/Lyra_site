@@ -28,7 +28,7 @@ jobs:
       - name: Montar os arquivos públicos do site
         run: |
           mkdir dist
-          cp index.html styles.css app.js dist/
+          cp index.html styles.css app.js api-config.js dist/
       - name: Enviar o site para publicação
         uses: actions/upload-pages-artifact@v4
         with:
