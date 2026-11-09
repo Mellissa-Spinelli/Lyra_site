@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101d3c" />
+    <meta name="description" content="LYRA — um espaço para organizar aulas e fazer novas ideias brilharem." />
+    <title>LYRA — ideias que brilham</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#inicio" aria-label="LYRA, início">
+          <span class="brand-mark" aria-hidden="true"><span></span><i></i></span>
+          <span class="brand-word">LYRA<span class="brand-period">.</span></span>
+        </a>
+
+        <div class="side-caption">SEU ESPAÇO</div>
+        <nav class="main-nav" aria-label="Navegação principal">
+          <button class="nav-link active" data-page="inicio"><span class="nav-icon">✦</span>Visão geral</button>
+          <button class="nav-link" data-page="planejamento"><span class="nav-icon">✎</span>Planejamento</button>
+          <button class="nav-link" data-page="agenda"><span class="nav-icon">▦</span>Agenda</button>
+          <button class="nav-link" data-page="conversa"><span class="nav-icon">☾</span>Conversar com Lyra</button>
+        </nav>
+
+        <div class="sidebar-spacer"></div>
+        <div class="identity-note">
+          <div class="identity-orbit" aria-hidden="true"><span>✧</span></div>
+          <p>Um universo em construção.</p>
+          <small>Avatar e logo ganham uma nova forma em breve.</small>
+        </div>
+        <div class="sidebar-footer"><span class="status-dot"></span> Seu espaço de criação</div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <div class="breadcrumb"><span>LYRA</span><span class="crumb-slash">/</span><span id="page-label">Visão geral</span></div>
+          <div class="topbar-right"><span class="topbar-note"><span class="tiny-star">✦</span><span id="mode-label">Modo de prévia</span></span><button class="avatar-placeholder" title="Avatar em criação" aria-label="Avatar em criação"><span>+</span></button></div>
+        </header>
+
+        <section class="page active" id="page-inicio">
+          <div class="welcome-row">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-star">✦</span> SEU CÉU DE POSSIBILIDADES</p>
+              <h1>Olá! Que bom <span>ter você aqui.</span></h1>
+              <p class="intro-copy">Um espaço tranquilo para organizar a semana, planejar aulas e deixar as ideias encontrarem seu caminho.</p>
+            </div>
+            <div class="date-pill"><span class="date-spark">✧</span><span id="today-label">Hoje</span></div>
+          </div>
+
+          <section class="hero-card" aria-label="Apresentação da LYRA">
+            <div class="hero-copy">
+              <div class="hero-kicker"><span></span> UM NOVO COMEÇO</div>
+              <h2>Boas ideias também<br />nascem <em>à noite.</em></h2>
+              <p>Encontre clareza para o que você quer ensinar. A LYRA ajuda a transformar intenções em planos possíveis.</p>
+              <button class="button button-light" data-go="planejamento">Criar meu primeiro planejamento <span>↗</span></button>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <svg viewBox="0 0 660 350" role="img" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#182958"/><stop offset=".52" stop-color="#384e94"/><stop offset="1" stop-color="#1c2b57"/></linearGradient>
+                  <radialGradient id="moon"><stop stop-color="#fff6c7"/><stop offset=".55" stop-color="#f6d884"/><stop offset="1" stop-color="#e9ae57"/></radialGradient>
+                  <linearGradient id="hill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#31436e"/><stop offset="1" stop-color="#172342"/></linearGradient>
+                  <filter id="glow"><feGaussianBlur stdDeviation="9" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                  <clipPath id="frame"><rect width="660" height="350" rx="24"/></clipPath>
+                </defs>
+                <g clip-path="url(#frame)">
+                  <rect width="660" height="350" fill="url(#sky)"/>
+                  <path d="M-24 126C73 18 160 44 219 100c59 55 113 70 180 35 81-42 175-59 282-13" fill="none" stroke="#7892dc" stroke-opacity=".34" stroke-width="24" stroke-linecap="round"/>
+                  <path d="M-38 164C62 58 150 79 211 133c62 55 120 72 192 35 85-43 170-49 271-7" fill="none" stroke="#a2b8f0" stroke-opacity=".18" stroke-width="11" stroke-linecap="round"/>
+                  <path d="M193 18c89 8 108 57 82 96-22 33-75 34-95 9-15-18-6-42 15-47 19-4 31 11 25 23" fill="none" stroke="#9bb1eb" stroke-opacity=".54" stroke-width="8" stroke-linecap="round"/>
+                  <path d="M440-30c-7 50 34 74 68 53 29-18 27-54-1-62-20-5-34 13-25 28" fill="none" stroke="#c1c9ed" stroke-opacity=".4" stroke-width="7" stroke-linecap="round"/>
+                  <path d="M-30 258c100-91 175-76 247-35 58 34 106 37 166 13 78-30 168-17 305 47v100H-30z" fill="url(#hill)"/>
+                  <path d="M-15 289c85-60 150-52 218-22 60 26 111 34 170 8 78-33 183-5 298 48v52H-15z" fill="#111c36"/>
+                  <circle cx="496" cy="103" r="51" fill="#f6cf79" opacity=".15" filter="url(#glow)"/>
+                  <circle cx="496" cy="103" r="31" fill="url(#moon)"/>
+                  <g fill="#fff4c4" filter="url(#glow)"><circle cx="131" cy="80" r="2.5"/><circle cx="365" cy="87" r="2"/><circle cx="563" cy="176" r="2.5"/><circle cx="410" cy="47" r="2"/><circle cx="220" cy="191" r="1.8"/><circle cx="593" cy="68" r="1.8"/><circle cx="300" cy="38" r="2.3"/></g>
+                  <g fill="#f9de91"><path d="M351 130l4 11 11 4-11 4-4 11-4-11-11-4 11-4z"/><path d="M587 118l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M94 178l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/></g>
+                  <path d="M82 262v-39h30v39m-24-27h6m7 0h5m-19 12h6m7 0h5m-19 15v-9h8v9m-23 0v-24h-8v24m10-17h5" fill="#10192e" stroke="#10192e" stroke-width="4"/>
+                  <path d="M126 252v-29h23v29m-18-19h5m6 0h4m-15 10h5m6 0h4m-15 9v-7h7v7" fill="#131e38" stroke="#131e38" stroke-width="4"/>
+                  <path d="M64 265h106m-81-43 7-11 7 11m16 2 7-13 7 13" stroke="#f3c976" stroke-width="2" opacity=".7"/>
+                  <path d="M551 237c-5-36 2-64 22-82 14 23 18 48 13 74 12-28 28-43 49-48-2 27-14 48-36 63 25-9 43-6 58 8-25 13-50 14-75 5-11 7-20 19-27 35h-15c4-20 8-37 11-55z" fill="#111c36"/>
+                  <path d="M569 218l-8 36m17-20 13-28m8 25 19-20" fill="none" stroke="#c2a86c" stroke-opacity=".48" stroke-width="2"/>
+                </g>
+              </svg>
+              <div class="avatar-stage"><span class="avatar-orbit orbit-one"></span><span class="avatar-orbit orbit-two"></span><span class="avatar-core">✧</span><small>avatar em criação</small></div>
+              <div class="art-caption"><span>✦</span> IDEIAS QUE BRILHAM</div>
+            </div>
+          </section>
+
+          <div class="section-heading"><div><p class="eyebrow">EXPLORE SEU ESPAÇO</p><h2>Por onde começamos?</h2></div><span class="section-note">Escolha um caminho para hoje <span>↘</span></span></div>
+          <div class="feature-grid">
+            <button class="feature-card planner-card" data-go="planejamento">
+              <span class="feature-icon icon-gold">✎</span><span class="feature-arrow">↗</span>
+              <span class="feature-tag">CRIAR</span><strong>Planejamento<br />de aula</strong><small>Transforme um tema em uma aula com propósito.</small>
+              <span class="card-bottom">Começar a planejar <b>→</b></span>
+            </button>
+            <button class="feature-card agenda-card" data-go="agenda">
+              <span class="feature-icon icon-blue">▦</span><span class="feature-arrow">↗</span>
+              <span class="feature-tag">ORGANIZAR</span><strong>Sua agenda<br />da semana</strong><small>Guarde compromissos e consulte seus próximos passos.</small>
+              <span class="card-bottom">Abrir agenda <b>→</b></span>
+            </button>
+            <button class="feature-card chat-card" data-go="conversa">
+              <span class="feature-icon icon-lilac">☾</span><span class="feature-arrow">↗</span>
+              <span class="feature-tag">CONVERSAR</span><strong>Pensar junto<br />com a LYRA</strong><small>Uma conversa para explorar uma ideia que está nascendo.</small>
+              <span class="card-bottom">Iniciar conversa <b>→</b></span>
+            </button>
+          </div>
+          <div class="bottom-note"><span>✧</span><p>Cada grande aula começa com uma pequena curiosidade.</p><span>✧</span></div>
+        </section>
+
+        <section class="page" id="page-planejamento">
+          <div class="subpage-heading"><p class="eyebrow"><span class="eyebrow-star">✦</span> PLANEJAMENTO</p><h1>Vamos dar forma<br /><span>a uma ideia?</span></h1><p class="intro-copy">Conte o que você quer ensinar. A gente começa com um rascunho e ajusta pelo caminho.</p></div>
+          <div class="workspace-grid">
+            <form class="panel planner-form" id="planner-form">
+              <div class="panel-title"><span class="feature-icon icon-gold">✎</span><div><h2>Nova aula</h2><p>Um bom plano começa com uma pergunta.</p></div></div>
+              <label for="lesson-topic">Tema ou conteúdo</label>
+              <textarea id="lesson-topic" rows="3" placeholder="Ex.: Ciclo da água e sua importância para a vida"></textarea>
+              <label for="lesson-audience">Turma ou faixa etária <span class="optional">opcional</span></label>
+              <input id="lesson-audience" type="text" placeholder="Ex.: 5º ano do Ensino Fundamental" />
+              <fieldset><legend>Escolha uma metodologia</legend>
+                <div class="method-list" id="method-list"><span class="loading-note">Carregando metodologias da LYRA…</span></div>
+              </fieldset>
+              <button class="button button-primary" type="submit">Montar um rascunho <span>✦</span></button>
+              <p class="form-footnote">Este rascunho é um ponto de partida editável.</p>
+            </form>
+            <section class="panel draft-panel" aria-live="polite">
+              <div class="draft-top"><span class="draft-label"><span></span> SEU RASCUNHO</span><button id="copy-draft" class="icon-button" title="Copiar rascunho" aria-label="Copiar rascunho">▢</button></div>
+              <div id="draft-placeholder" class="draft-placeholder"><div class="draft-moon">✧</div><h3>Sua próxima aula<br />começa aqui.</h3><p>Preencha o tema ao lado e a LYRA organiza as primeiras ideias para você.</p></div>
+              <div id="draft-result" class="draft-result" hidden><h3 id="draft-title">Um plano em construção</h3><p id="draft-text"></p><div class="draft-methods" id="draft-methods"></div><p class="draft-reminder">✦ Ajuste o texto para combinar com a sua turma.</p></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="page" id="page-agenda">
+          <div class="subpage-heading compact-heading"><p class="eyebrow"><span class="eyebrow-star">✦</span> AGENDA</p><h1>Um passo de cada vez.</h1><p class="intro-copy">Anote compromissos e dê espaço para a sua semana respirar.</p></div>
+          <div class="agenda-layout">
+            <section class="panel agenda-list-panel"><div class="agenda-title-row"><div><p class="eyebrow">SUA GRADE SEMANAL</p><h2>Aulas da semana</h2></div><span class="agenda-count" id="agenda-count">0 aulas</span></div><div id="agenda-list" class="agenda-list"></div><div id="agenda-empty" class="empty-state"><span>☾</span><h3>Sua grade está esperando por você.</h3><p>Cadastre as aulas recorrentes e elas aparecem aqui, organizadas por dia.</p></div></section>
+            <form class="panel agenda-form" id="agenda-form"><div class="panel-title"><span class="feature-icon icon-blue">＋</span><div><h2>Adicionar uma aula</h2><p>Inclua um horário na sua semana.</p></div></div><label for="agenda-day">Dia da semana</label><select id="agenda-day" required><option value="0">Segunda-feira</option><option value="1">Terça-feira</option><option value="2">Quarta-feira</option><option value="3">Quinta-feira</option><option value="4">Sexta-feira</option><option value="5">Sábado</option><option value="6">Domingo</option></select><label for="agenda-time">Horário</label><input id="agenda-time" type="text" required placeholder="Ex.: 07:00 — 07:50" /><label for="agenda-discipline">Disciplina</label><input id="agenda-discipline" type="text" required placeholder="Ex.: Ciências" /><label for="agenda-summary">Resumo ou conteúdo <span class="optional">opcional</span></label><textarea id="agenda-summary" rows="2" placeholder="O que será trabalhado nesta aula?"></textarea><label for="agenda-materials">Materiais ou metodologia <span class="optional">opcional</span></label><textarea id="agenda-materials" rows="2" placeholder="Detalhes para lembrar..."></textarea><button class="button button-primary" type="submit">Salvar aula na grade <span>＋</span></button></form>
+          </div>
+        </section>
+
+        <section class="page" id="page-conversa">
+          <div class="subpage-heading compact-heading"><p class="eyebrow"><span class="eyebrow-star">✦</span> CONVERSA</p><h1>Um lugar para pensar em voz alta.</h1><p class="intro-copy">Traga uma dúvida, uma ideia ou só o primeiro fio de uma aula.</p></div>
+          <section class="panel conversation-panel">
+            <div class="conversation-header"><div class="conversation-avatar">✧</div><div><h2>Conversa com a LYRA</h2><p><span class="status-dot"></span> Aqui para pensar com você</p></div><span class="demo-label" id="chat-mode">MODO DE PRÉVIA</span></div>
+            <div class="chat-stream" id="chat-stream" aria-live="polite"><div class="message lyra-message"><span class="message-avatar">✧</span><div class="message-bubble"><small>LYRA · agora</small><p>Olá! 🌙 Que ideia está passando pela sua cabeça hoje?</p></div></div></div>
+            <div class="suggestions"><button data-prompt="Me ajuda a pensar em uma atividade de abertura para minha aula?">Uma atividade de abertura</button><button data-prompt="Como posso explicar um tema difícil de um jeito simples?">Explicar de um jeito simples</button><button data-prompt="Quero organizar minhas ideias para uma aula.">Organizar uma ideia</button></div>
+            <form class="chat-compose" id="chat-form"><input id="chat-input" type="text" autocomplete="off" placeholder="Escreva uma ideia ou uma pergunta..." aria-label="Mensagem para a LYRA" /><button type="submit" aria-label="Enviar mensagem">↑</button></form>
+            <p class="chat-disclaimer" id="chat-disclaimer">Nesta prévia, as respostas são demonstrativas. As mensagens não saem deste navegador.</p>
+          </section>
+        </section>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
