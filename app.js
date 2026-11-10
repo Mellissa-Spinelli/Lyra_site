@@ -23,18 +23,21 @@ const themes = {
     description: "Azuis profundos, redemoinhos celestes e pontos de luz dourada.",
     caption: "NOITE ESTRELADA · VAN GOGH",
     browserColor: "#101d3c",
+    avatar: "assets/lyra-starry-night.png",
   },
   "monet-sunrise": {
     name: "Impressão, nascer do sol",
     description: "Névoa azul-acinzentada, água verde-petróleo e um sol coral.",
     caption: "IMPRESSÃO, NASCER DO SOL · MONET",
     browserColor: "#536f74",
+    avatar: "assets/lyra-monet-sunrise.png",
   },
   "monet-nympheas": {
     name: "O lago das ninfeias",
     description: "Verdes de jardim, reflexos azulados e flores em rosa suave.",
     caption: "NYMPHÉAS · MONET",
     browserColor: "#294a49",
+    avatar: "assets/lyra-monet-nympheas.png",
   },
 };
 
@@ -46,6 +49,10 @@ function applyTheme(themeId, save = true) {
   document.getElementById("active-theme-description").textContent = theme.description;
   document.getElementById("hero-art-caption").textContent = theme.caption;
   document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme.browserColor);
+  document.getElementById("hero-avatar").src = theme.avatar;
+  document.getElementById("topbar-avatar").src = theme.avatar;
+  document.getElementById("conversation-avatar").src = theme.avatar;
+  document.body.style.setProperty("--lyra-avatar-image", `url("${theme.avatar}")`);
   document.querySelectorAll("[data-theme-card]").forEach((card) => {
     const active = card.dataset.themeCard === selectedTheme;
     card.classList.toggle("is-selected", active);
